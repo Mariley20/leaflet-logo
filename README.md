@@ -5,8 +5,6 @@ A useful control to logo with many options for page.
 
 ### Set up:
 
-tl;dr
-
 1. Get CSS and JavaScript files
 2. Include CSS and JavaScript files
 3. Initialize plugin
@@ -43,14 +41,14 @@ L.control.logo(OPTIONS).addTo(map);
 
 Possible options are listed in the following table. More details are [in the code](https://github.com/barisariburnu/leaflet-logo/blob/master/src/leaflet-logo.js#L7).
 
-| Option     | Type      | Default          |
-|------------|-----------|------------------|
-| `position` | `string`  | `topleft`        |
-| `height`   | `string`  | `50px`           |
-| `width`    | `string`  | `50px`           |
-| `target`   | `string`  | `50px`           |
-| `link`     | `string`  | None (required)  |
-| `image`    | `string`  | None (required)  |
+| Option     | Type      | Default            |
+|------------|-----------|--------------------|
+| `position` | `string`  | `topleft`          |
+| `height`   | `string`  | `50px`             |
+| `width`    | `string`  | `50px`             |
+| `target`   | `string`  | `50px`             |
+| `link`     | `string`  | `None (required)`  |
+| `image`    | `string`  | `None (required)`  |
 
 
 For example, to customize the position, link and image, you could write
