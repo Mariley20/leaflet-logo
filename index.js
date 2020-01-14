@@ -7,44 +7,52 @@ require('./leaflet-logo.css')
 
 L.Control.Logo = L.Control.extend({
   options: {
-      position: 'topleft',
-      height: '50px',
-      width: '50px',
-      target: '_self'
+    borderRadius: false,
+    position: 'topleft',
+    height: '50px',
+    width: '50px',
+    target: '_self'
   },
-  initialize: function(options) {
-      if (! options.link)  throw "L.Control.Logo missing required option: link";
-      if (! options.image)  throw "L.Control.Logo missing required option: image";
-      L.setOptions(this,options);
+  initialize: function (options) {
+    if (!options.link) throw "L.Control.Logo missing required option: link";
+    if (!options.image) throw "L.Control.Logo missing required option: image";
+    L.setOptions(this, options);
   },
   onAdd: function (map) {
-      this._map = map;
+    this._map = map;
 
-      // create our container, and set the background image
-      var container = L.DomUtil.create('div', 'leaflet-logo-control', container);
-      container.style.backgroundImage = 'url(' + this.options.image + ')';
-      container.style.backgroundRepeat = 'no-repeat';
-      container.style.paddingRight = this.options.width;
-      container.style.height       = this.options.height;
+    // create our container, and set the background image
+    var container = L.DomUtil.create('div', 'leaflet-logo-control', container);
+    container.style.backgroundImage = 'url(' + this.options.image + ')';
+    container.style.backgroundRepeat = 'no-repeat';
+    container.style.backgroundSize = 'contain';
+    container.style.marginBottom = '1rem';
+    container.style.marginLeft = '1rem';
+    container.style.height = this.options.height;
+    container.style.paddingRight = this.options.width;
+    if (this.options.borderRadius)
+      container.style.borderRadius = this.options.height;
+    // margin-bottom: 1rem !important;
+    // margin-left: 1rem;
 
-      // generate the hyperlink to the left-hand side
-      var link        = L.DomUtil.create('a', '', container);
-      link.target     = this.options.target;
-      link.href       = this.options.link;
+    // generate the hyperlink to the left-hand side
+    var link = L.DomUtil.create('a', '', container);
+    link.target = this.options.target;
+    link.href = this.options.link;
 
-      // create a linkage between this control and the hyperlink bit, since we will be toggling CSS for that hyperlink section
-      container.link = link;
+    // create a linkage between this control and the hyperlink bit, since we will be toggling CSS for that hyperlink section
+    container.link = link;
 
-      // clicking the control (the image bit) expands the left-hand hyperlink/text bit
-      L.DomEvent
+    // clicking the control (the image bit) expands the left-hand hyperlink/text bit
+    L.DomEvent
       .addListener(container, 'mousedown', L.DomEvent.stopPropagation)
       .addListener(container, 'click', L.DomEvent.stopPropagation)
       .addListener(container, 'dblclick', L.DomEvent.stopPropagation)
       .addListener(container, 'click', function () {
-          window.open(link.href, link.target);
+        window.open(link.href, link.target);
       });
 
-      return container;
+    return container;
   }
 });
 
