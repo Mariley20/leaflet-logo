@@ -46,6 +46,8 @@ L.Control.Logo = L.Control.extend({
     }
 });
 
-L.control.logo = function (options) {
+Logo = function (options) {
     return new L.Control.Logo(options);
 };
+
+module.exports = Logo
