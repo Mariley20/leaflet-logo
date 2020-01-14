@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "homepage": "https://github.com/barisariburnu/leaflet-logo",
   "description": "A useful control to logo with many options for page.",
-  "main": "src/leaflet-logo.js",
+  "main": "index.js",
   "author": "barisariburnu <barisariburnuz@gmail.com>",
   "repository": {
     "type": "git",
