@@ -1,6 +1,6 @@
 {
   "name": "leaflet-logo-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/barisariburnu/leaflet-logo",
   "description": "A useful control to logo with many options for page.",
   "main": "index.js",
