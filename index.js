@@ -26,14 +26,10 @@ L.Control.Logo = L.Control.extend({
     container.style.backgroundImage = 'url(' + this.options.image + ')';
     container.style.backgroundRepeat = 'no-repeat';
     container.style.backgroundSize = 'contain';
-    container.style.marginBottom = '1rem !important';
-    container.style.marginLeft = '1rem';
     container.style.height = this.options.height;
-    container.style.paddingRight = this.options.width;
+    container.style.width = this.options.width;
     if (!this.options.borderRadius)
       container.style.borderRadius = '0';
-    // margin-bottom: 1rem !important;
-    // margin-left: 1rem;
 
     // generate the hyperlink to the left-hand side
     var link = L.DomUtil.create('a', '', container);
